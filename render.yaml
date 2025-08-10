@@ -18,7 +18,3 @@ services:
       - key: READONLY_ROOMS
         value: announcements
     healthCheckPath: /health
-    disk:
-      name: data
-      mountPath: /opt/render/project/src
-      sizeGB: 1
