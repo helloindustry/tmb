@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: tmb-chat
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    autoDeploy: true
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: INVITE_CODE
+        value: tmb-2025
+      - key: ADMIN_CODE
+        value: let-me-in
+      - key: SITE_NAME
+        value: The Music Building
+      - key: READONLY_ROOMS
+        value: announcements
+    healthCheckPath: /health
+    disk:
+      name: data
+      mountPath: /opt/render/project/src
+      sizeGB: 1

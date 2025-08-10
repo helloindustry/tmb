@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TMB Chat</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="join-screen" class="screen">
+    <div class="panel">
+      <h1 id="site-title">TMB Chat</h1>
+      <p>Enter the invite code and your display name.</p>
+      <form id="join-form">
+        <label>Invite Code <input id="inviteCode" autocomplete="off" required></label>
+        <label>Display Name <input id="displayName" autocomplete="name" required maxlength="40"></label>
+        <button type="submit">Enter</button>
+      </form>
+      <details>
+        <summary>Admin</summary>
+        <form id="admin-form">
+          <label>Admin Code <input id="adminCode"></label>
+          <button type="submit">Upgrade</button>
+        </form>
+      </details>
+    </div>
+  </div>
+
+  <div id="chat-screen" class="screen hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <strong id="brand-name">TMB Chat</strong>
+      </div>
+      <nav id="rooms"></nav>
+    </aside>
+    <main class="chat">
+      <header class="chat-header">
+        <div id="room-title">Loading…</div>
+        <div id="room-hint" class="hint"></div>
+      </header>
+      <section id="messages"></section>
+      <footer class="composer">
+        <form id="message-form">
+          <input id="message" placeholder="Type a message…" autocomplete="off" maxlength="4000">
+          <button type="submit">Send</button>
+        </form>
+        <div id="typing"></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
